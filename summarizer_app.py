@@ -5,8 +5,10 @@ from transformers import pipeline
 import torch
 
 # Page Configuration
-st.set_page_config(page_title="Syntra.ai Summarizer", 
-age_icon="🧠")
+st.set_page_config(
+    page_title="Syntra.ai Summarizer",
+    page_icon="🧠"  )
+
 st.title("🧠 Syntra.ai – AI Text Summarizer")
 st.markdown("Summarize long articles into short, clear insights using AI.")
 
@@ -27,7 +29,6 @@ if st.button("🔍 Summarize"):
     else:
         with st.spinner("Generating summary..."):
             try:
-                # You can tune these values based on typical text length
                 summary = summarizer(text, max_length=100, min_length=30, do_sample=False)
                 st.subheader("📝 Summary")
                 st.success(summary[0]['summary_text'])
@@ -37,3 +38,4 @@ if st.button("🔍 Summarize"):
 
 st.markdown("---")
 st.caption("Built by Hanya Nasir • Syntra.ai © 2025")
+
